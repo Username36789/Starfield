@@ -66,7 +66,7 @@ class OddballParticle extends Particle {
 
   @Override
   void move() {
-    angle += random(-0.1, 0.1);
+    angle += random(-1, 1);
     super.move();
   }
 
