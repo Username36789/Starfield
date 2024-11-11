@@ -1,5 +1,3 @@
-//your code here
-
 Particle[] particles;
 
 void setup() {
@@ -25,16 +23,16 @@ void draw() {
 }
 
 class Particle {
-  float x, y;
-  float angle, speed;
+  double x, y;
+  double angle, speed;
   color col;
 
   Particle() {
-    x = width / 2;
-    y = height / 2;
-    angle = random(TWO_PI);
-    speed = random(1, 3);
-    col = color(random(255), random(255), random(255));
+    x = width / 2.0;
+    y = height / 2.0;
+    angle = Math.random() * TWO_PI;
+    speed = (Math.random() * 2) + 1;
+    col = color((int) Math.round(Math.random() * 255), (int) Math.round(Math.random() * 255), (int) Math.round(Math.random() * 255));
   }
 
   void move() {
@@ -51,7 +49,7 @@ class Particle {
   void show() {
     fill(col);
     noStroke();
-    ellipse(x, y, 5, 5);
+    ellipse((float) x, (float) y, 5, 5);
   }
 }
 
@@ -66,7 +64,7 @@ class OddballParticle extends Particle {
 
   @Override
   void move() {
-    angle += random(-1, 1);
+    angle += (Math.random() * 0.2) - 0.1;
     super.move();
   }
 
@@ -74,6 +72,6 @@ class OddballParticle extends Particle {
   void show() {
     fill(col);
     noStroke();
-    ellipse(x, y, 10, 10);
+    ellipse((float) x, (float) y, 10, 10);
   }
 }
