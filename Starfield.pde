@@ -16,7 +16,8 @@ void setup() {
 void draw() {
   background(0);
   
-  for (Particle p : particles) {
+  for (int i = 0; i < particles.length; i++) {
+    Particle p = particles[i];
     p.move();
     p.show();
   }
@@ -37,8 +38,8 @@ class Particle {
 
   void move() {
     //x for cos; y for sin
-    x += cos(angle) * speed;
-    y += sin(angle) * speed;
+    x += Math.cos(angle) * speed;
+    y += Math.sin(angle) * speed;
     
     if (x < 0) x = width;
     if (x > width) x = 0;
